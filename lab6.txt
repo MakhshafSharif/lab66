@@ -1,0 +1,64 @@
+
+          
+          WebElement clickElement = driver.findElement(By.xpath("//button[@class='btn btn-lg tab']"));
+          for (int i = 0; i < 75; i++) {
+          clickElement.click();
+           Thread.sleep(1000);
+          
+       }
+add customer page
+driver.findElement(By.xpath"//input[@placeholder='First Name']")).sendKeys("Makhshaf");
+driver.findElement(By.xpath"//input[@placeholder='Last Name']")).sendKeys("Makhshaf123");
+driver.findElement(By.xpath"//input[@placeholder='Post Code']")).sendKeys("098");
+driver.findElement(By.xpath"//button[@class='btn btn-default']")).click();
+driver.switchTo().alert().accept();
+
+ STEP 2:
+driver.findElement(By.xpath("//button[@class='btn btn-lg tab']")).click();
+
+or
+                      
+Set<String> allWindowHandles = driver.getWindowHandles();
+String lastWindowHandle = "";
+for(String handle : allWindowHandles)
+{
+System.out.println("Switching to window - > " + handle);
+System.out.println("Navigating to google.com");
+driver.switchTo().window(handle); //Switch to the desired window first and then execute commands using driver
+driver.get("http://google.com");
+lastWindowHandle = handle;
+driver.close();
+}
+ 
+//Switch to the parent window
+driver.switchTo().window(parentWindowHandle);
+
+
+  step 3:
+driver.findElement(By.xpath("//button[text()='Customer Login']")).click();
+                after click button, new page will open then.
+driver.findElement(By.xpath("//select[@id='userSelect']//option[@value='3']")).click();
+driver.findElement(By.xpath("//button[@class='btn btn-default']")).click();
+ 
+ step 4:
+//click on deposit button
+driver.findElement(By.xpath("//button[@class='btn btn-lg tab btn-primary']")).click();
+//input field
+driver.findElement(By.xpath("//input[@type='number']")).sendKeys(); 
+//deposit button
+driver.findElement(By.xpath("//button[@type='submit']")).click();
+
+
+
+//go back to withdraw button
+driver.findElement(By.xpath("//button[@class='btn btn-lg tab'][2]")).click();
+//input field
+driver.findElement(By.xpath("//input[@type='number']")).sendKeys("2000");
+//withdraw button
+driver.findElement(By.xpath("//button[@type='submit']")).click();
+
+Step 5:
+//transaction button
+driver.findElement(By.xpath("//button[@class='btn btn-lg tab'][1]")).click();
+//after click this new page will open, set date and time
+driver.findElement(By.xpath("//a[@href='#']"));
